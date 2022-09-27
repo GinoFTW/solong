@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:08:55 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/21 17:32:25 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/27 15:19:18 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void	check_map(t_data *session)
 		ft_exit_maperror(3, session);
 	if (session->nbcollect < 1)
 		ft_exit_maperror(4, session);
-	if (session->nbcollect < 1)
+	if (session->nbexit < 1)
 		ft_exit_maperror(5, session);
 	if (!map_path_verif(session))
 		ft_exit_maperror(6, session);
