@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 20:38:52 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/22 13:19:43 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/27 18:38:05 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,41 @@
 
 void	anim_player_r(t_data *session)
 {
-	if (session->frame % 16 == 0)
+	if (session->frame % 24 == 0)
 		session->imgplayer = "sprites/RFire_Warrior_IdleFireSword1.xpm";
-	if (session->frame % 16 == 1)
+	if (session->frame % 24 == 3)
 		session->imgplayer = "sprites/RFire_Warrior_IdleFireSword2.xpm";
-	if (session->frame % 16 == 2)
+	if (session->frame % 24 == 6)
 		session->imgplayer = "sprites/RFire_Warrior_IdleFireSword3.xpm";
-	if (session->frame % 16 == 3)
+	if (session->frame % 24 == 9)
 		session->imgplayer = "sprites/RFire_Warrior_IdleFireSword4.xpm";
-	if (session->frame % 16 == 4)
+	if (session->frame % 24 == 12)
 		session->imgplayer = "sprites/RFire_Warrior_IdleFireSword5.xpm";
-	if (session->frame % 16 == 5)
-		session->imgplayer = "sprites/RFire_Warrior_IdleFireSword4.xpm";
-	if (session->frame % 16 == 6)
-		session->imgplayer = "sprites/RFire_Warrior_IdleFireSword5.xpm";
-	if (session->frame % 16 == 7)
+	if (session->frame % 24 == 15)
 		session->imgplayer = "sprites/RFire_Warrior_IdleFireSword6.xpm";
-	if (session->frame % 16 == 8)
+	if (session->frame % 24 == 18)
 		session->imgplayer = "sprites/RFire_Warrior_IdleFireSword7.xpm";
-	if (session->frame % 16 == 9)
+	if (session->frame % 24 == 21)
 		session->imgplayer = "sprites/RFire_Warrior_IdleFireSword8.xpm";
 }
 
 void	anim_player_l(t_data *session)
 {
-	if (session->frame % 16 == 0)
+	if (session->frame % 24 == 0)
 		session->imgplayer = "sprites/LFire_Warrior_IdleFireSword1.xpm";
-	if (session->frame % 16 == 1)
+	if (session->frame % 24 == 3)
 		session->imgplayer = "sprites/LFire_Warrior_IdleFireSword2.xpm";
-	if (session->frame % 16 == 2)
+	if (session->frame % 24 == 6)
 		session->imgplayer = "sprites/LFire_Warrior_IdleFireSword3.xpm";
-	if (session->frame % 16 == 3)
+	if (session->frame % 24 == 9)
 		session->imgplayer = "sprites/LFire_Warrior_IdleFireSword4.xpm";
-	if (session->frame % 16 == 4)
+	if (session->frame % 24 == 12)
 		session->imgplayer = "sprites/LFire_Warrior_IdleFireSword5.xpm";
-	if (session->frame % 16 == 5)
-		session->imgplayer = "sprites/LFire_Warrior_IdleFireSword4.xpm";
-	if (session->frame % 16 == 6)
-		session->imgplayer = "sprites/LFire_Warrior_IdleFireSword5.xpm";
-	if (session->frame % 16 == 7)
+	if (session->frame % 24 == 15)
 		session->imgplayer = "sprites/LFire_Warrior_IdleFireSword6.xpm";
-	if (session->frame % 16 == 8)
+	if (session->frame % 24 == 18)
 		session->imgplayer = "sprites/LFire_Warrior_IdleFireSword7.xpm";
-	if (session->frame % 16 == 9)
+	if (session->frame % 24 == 21)
 		session->imgplayer = "sprites/LFire_Warrior_IdleFireSword8.xpm";
 }
 
@@ -83,6 +75,7 @@ void	anim_collectibles(t_data *session)
 void	anim_exit(t_data *session)
 {
 	if (!session->nbcollect)
+	{
 		if (!session->lockexit)
 		{
 			if (session->doorframe == 0)
@@ -96,16 +89,13 @@ void	anim_exit(t_data *session)
 			else if (session->doorframe == 120)
 				session->imgexit = "sprites/Door5.xpm";
 			else if (session->doorframe == 150)
-				session->imgexit = "sprites/Door5.xpm";
-			else if (session->doorframe == 180)
-				session->imgexit = "sprites/Door6.xpm";
-			else if (session->doorframe == 210)
 			{
 				session->imgexit = "sprites/Door6.xpm";
 				session->lockexit = 1;
 			}
 			session->doorframe++;
 		}
+	}
 }
 
 void	ft_animation(t_data *session)

@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 20:36:55 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/27 16:48:11 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/27 18:43:43 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void	data_init(t_data *session)
 	session->nbcollect = 0;
 	session->directplayer = 'R';
 	session->mlx = mlx_init();
-	session->win = mlx_new_window(session->mlx, session->winwidth, session->winheight, "so long");
+	session->win = mlx_new_window(session->mlx, session->winwidth,
+			session->winheight, "so long");
 }
 
 void	check_map_name(t_data *session)
@@ -70,7 +71,7 @@ void	check_map_name(t_data *session)
 		ft_exit_maperror(8, session);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_data	session;
 
@@ -81,7 +82,7 @@ int main(int argc, char **argv)
 	session.map = ft_importmap(&session);
 	data_init(&session);
 	check_map(&session);
-	mlx_hook(session.win, 2, 1L<<0, ft_keypress, &session);
+	mlx_hook(session.win, 2, 1L << 0, ft_keypress, &session);
 	mlx_hook(session.win, 17, 0L, ft_exit, &session);
 	first_stream(&session);
 	mlx_loop_hook(session.mlx, ft_rendering, &session);
