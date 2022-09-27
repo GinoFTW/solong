@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 12:08:16 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/23 12:31:12 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/27 15:28:28 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_exit_maperror(int errornum, t_data *session)
 	if (errornum == 6)
 	{
 		ft_printf("Check that your player can access");
-		ft_printf("to all Collectibles and Exit !\n");
+		ft_printf(" to all Collectibles and Exit !\n");
 	}
 	if (errornum == 7)
 		ft_printf("It contains some unknown characters");
