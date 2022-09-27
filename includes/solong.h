@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:32:27 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/23 11:54:53 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/27 17:29:19 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct s_data
 	char	*imgexit;
 	char	*imgend;
 	char	*mapfile;
+	char	*origin;
+	char	*dest;
 	char	**map;
 	char	directplayer;
 	size_t	maph;
@@ -79,6 +81,7 @@ int		ft_exit(t_data *session);
 int		ft_rendering(t_data *session);
 size_t	mapsize(char *fichiermap);
 char	**ft_importmap(t_data *session);
+void	moveplayer(int keyinput, t_data *session);
 void	ft_putscore(t_data *session);
 void	ft_putimg(t_data *session, char *imgfile, int x, int y);
 void	ft_putimg_end(t_data *session, char *imgfile, int x, int y);

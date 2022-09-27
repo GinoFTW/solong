@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 11:44:10 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/22 13:19:43 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/27 16:13:46 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ size_t	mapheight(t_data *session)
 	i = 0;
 	fd = open(session->mapfile, O_RDONLY);
 	line = get_next_line(fd);
+	if (!line)
+	{
+		free(line);
+		ft_exit_maperror(9, session);
+	}
 	if (line)
 	{
 		while (line)

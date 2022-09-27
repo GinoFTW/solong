@@ -6,44 +6,80 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:11:44 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/23 10:48:55 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/27 17:38:30 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/solong.h"
 
-void	change_map(char start, char end, char *origin, char *dest, t_data *session)
+void	change_map(char start, char end, t_data *session)
 {
 	if (start == 'E')
 		session->pondoor = 0;
-	if (*dest == 'E')
+	if (*session->dest == 'E')
 		session->pondoor = 1;
-	*origin = start;
-	*dest = end;
+	*session->origin = start;
+	*session->dest = end;
 }
 
-int	char_move(char *start, char *end, t_data *session)
+int	char_can_move(t_data *session)
 {
 	int	move;
 
 	move = 0;
-	if (*end == 'C')
+	if (*session->dest == 'C')
 		session->nbcollect--;
-	if (*end == 'E')
+	if (*session->dest == 'E')
 	{
-		change_map('0', 'P', start, end, session);
+		change_map('0', 'P', session);
 		if (session->nbcollect == 0)
 			ft_exit_gameover(session);
 		move = 1;
 	}
-	else if (*end != '1')
+	else if (*session->dest != '1')
 	{
 		if (session->pondoor == 0)
-			change_map('0', 'P', start, end, session);
+			change_map('0', 'P', session);
 		else
-			change_map('E', 'P', start, end, session);
+			change_map('E', 'P', session);
 		move = 1;
 	}
 	return (move);
 }
 
+void	set_new_values(t_data *session, int x, int y)
+{
+	session->lastxplayer = session->xplayer;
+	session->lastyplayer = session->yplayer;
+	session->xplayer = x;
+	session->yplayer = y;
+	session->nbmoves += 1;
+}
+
+void	moveplayer(int keyinput, t_data *session)
+{
+	int	x;
+	int	y;
+
+	x = session->xplayer;
+	y = session->yplayer;
+	session->origin = &session->map[y][x];
+	if (keyinput == 0)
+	{
+		x--;
+		session->directplayer = 'L';
+	}
+	else if (keyinput == 1)
+		y++;
+	else if (keyinput == 2)
+	{
+		x++;
+		session->directplayer = 'R';
+	}
+	else if (keyinput == 13)
+		y--;
+	session->dest = &session->map[y][x];
+	if (char_can_move(session))
+		set_new_values(session, x, y);
+	update_main_stream(session);
+}

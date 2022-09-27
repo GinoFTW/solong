@@ -6,47 +6,11 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 20:36:55 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/23 12:31:38 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/27 16:48:11 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/solong.h"
-
-void	moveplayer(int keyinput, t_data *session)
-{
-	char	*start;
-	char	*end;
-	int	x;
-	int	y;
-
-	x = session->xplayer;
-	y = session->yplayer;
-	start = &session->map[y][x];
-	if (keyinput == 0)
-	{
-		x--;
-		session->directplayer = 'L';
-	}
-	else if (keyinput == 1)
-		y++;
-	else if (keyinput == 2)
-	{
-		x++;
-		session->directplayer = 'R';
-	}
-	else if (keyinput == 13)
-		y--;
-	end = &session->map[y][x];
-	if (char_move(start, end, session))
-	{
-		session->lastxplayer = session->xplayer;
-		session->lastyplayer = session->yplayer;
-		session->xplayer = x;
-		session->yplayer = y;
-		session->nbmoves += 1;
-	}
-	update_main_stream(session);
-}
 
 int	ft_keypress(int keyinput, t_data *session)
 {
@@ -86,14 +50,24 @@ void	data_init(t_data *session)
 	session->nbexit = 0;
 	session->x = 0;
 	session->y = 0;
-	session->blocheight = 50;
-	session->blocwidth = 50;
 	session->xscore = 5;
 	session->yscore = 23;
 	session->nbcollect = 0;
 	session->directplayer = 'R';
 	session->mlx = mlx_init();
 	session->win = mlx_new_window(session->mlx, session->winwidth, session->winheight, "so long");
+}
+
+void	check_map_name(t_data *session)
+{
+	int		i;
+	char	*filename;
+
+	filename = session->mapfile;
+	i = ft_strlen(filename);
+	if (filename[i - 1] != 'r' && filename[i - 2] != 'e'
+		&& filename[i - 3] != 'b' && filename[i - 4] != '.')
+		ft_exit_maperror(8, session);
 }
 
 int main(int argc, char **argv)
@@ -103,6 +77,7 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		ft_exit_maperror(8, &session);
 	session.mapfile = argv[1];
+	check_map_name(&session);
 	session.map = ft_importmap(&session);
 	data_init(&session);
 	check_map(&session);

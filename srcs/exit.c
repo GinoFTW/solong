@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 12:08:16 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/27 15:28:28 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/27 16:49:50 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_exit_maperror(int errornum, t_data *session)
 	if (errornum == 4)
 		ft_printf("It must contain at least one Collectible (C)\n");
 	if (errornum == 5)
-		ft_printf("It must contain at least one Exit (E)");
+		ft_printf("It must contain at least one Exit (E)\n");
 	if (errornum == 6)
 	{
 		ft_printf("Check that your player can access");
@@ -36,13 +36,12 @@ void	ft_exit_maperror(int errornum, t_data *session)
 		ft_printf("You must add an argument with a map file .ber\n");
 	if (errornum < 8)
 		ft_freemem(session);
-	exit(0);
+	exit(errornum);
 }
 
 void	ft_exit_gameover(t_data *session)
 {
 	session->end = 1;
-	//end_stream(session);
 }
 
 int	ft_exit(t_data *session)
