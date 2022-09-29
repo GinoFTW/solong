@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solong.h                                           :+:      :+:    :+:   */
+/*   solong_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:32:27 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/28 18:41:10 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/29 15:38:23 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SOLONG_H
-# define SOLONG_H
+#ifndef SOLONG_BONUS_H
+# define SOLONG_BONUS_H
 
 # include "mlx.h"
 # include "../getnextline/get_next_line.h"
@@ -34,11 +34,14 @@ typedef struct s_data
 	char	*imgfloor;
 	char	*imgexit;
 	char	*imgend;
+	char	*imgendmessage;
+	char	*imgenemy;
 	char	*mapfile;
 	char	*origin;
 	char	*dest;
 	char	**map;
 	char	directplayer;
+	char	directenemy;
 	size_t	maph;
 	size_t	mapw;
 	int		blocwidth;
@@ -49,15 +52,19 @@ typedef struct s_data
 	int		winheight;
 	int		xplayer;
 	int		yplayer;
+	int		xenemy;
+	int		yenemy;
 	int		lastxplayer;
 	int		lastyplayer;
 	int		xscore;
 	int		yscore;
 	int		end;
+	int		death;
 	size_t	x;
 	size_t	y;
 	int		nbcollect;
 	int		doorframe;
+	int		deathframe;
 	int		lockexit;
 	int		pondoor;
 	int		frame;
@@ -86,8 +93,12 @@ void	ft_putscore(t_data *session);
 void	ft_putimg(t_data *session, char *imgfile, int x, int y);
 void	ft_putimg_end(t_data *session, char *imgfile, int x, int y);
 void	ft_put_player(t_data *session);
+void	ft_put_enemy(t_data *session);
 void	ft_put_collectible(t_data *session);
 void	ft_put_exit(t_data *session);
 void	ft_exit_strerror(char *str);
 void	ft_putimg(t_data *session, char *imgfile, int x, int y);
+void	anim_enemy(t_data *session);
+void	parse_map_for_enemies(t_data *session);
+void	anim_player_death(t_data *session);
 #endif
