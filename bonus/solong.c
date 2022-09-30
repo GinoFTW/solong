@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 20:36:55 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/29 15:30:57 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/30 12:33:34 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_keypress(int keyinput, t_data *session)
 		ft_freemem(session);
 		exit (0);
 	}
-	if (session->pondoor && session->nbcollect == 0)
+	if (session->death >= 1 || session->end >= 1)
 		return (keyinput);
 	else if (keyinput == 0)
 		moveplayer(keyinput, session);
