@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 18:31:03 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/30 15:47:13 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/30 21:50:19 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	ft_putimg_end(t_data *session, char *imgfile, int x, int y)
 	imgwidth = &session->blocwidth2;
 	img = mlx_xpm_file_to_image(session->mlx, imgfile, imgwidth, imgheight);
 	mlx_put_image_to_window (session->mlx, session->win, img, x, y);
-	mlx_destroy_image(session->mlx ,img);
+	mlx_destroy_image(session->mlx, img);
 }

@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:32:27 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/29 15:38:23 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/30 21:53:16 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_data
 	char	*origin;
 	char	*dest;
 	char	**map;
+	char	**tempmap;
 	char	directplayer;
 	char	directenemy;
 	size_t	maph;
@@ -79,7 +80,8 @@ void	ft_animation(t_data *session);
 void	ft_exit_maperror(int errornum, t_data *session);
 void	ft_freemem(t_data *session);
 void	check_map(t_data *session);
-void	free_map(char **map);
+void	free_map(t_data *session);
+void	free_temp_map(t_data *session);
 void	first_stream(t_data *session);
 void	update_main_stream(t_data *session);
 void	end_stream(t_data *session);
