@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 20:36:55 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/27 18:43:43 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/30 15:50:14 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_keypress(int keyinput, t_data *session)
 	{
 		mlx_destroy_window(session->mlx, session->win);
 		ft_freemem(session);
+		system("leaks so_long");
 		exit (0);
 	}
 	if (session->pondoor && session->nbcollect == 0)

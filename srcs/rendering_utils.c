@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 12:00:53 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/23 12:08:37 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/30 15:47:13 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_putimg(t_data *session, char *imgfile, int x, int y)
 	x = x * (session->blocwidth);
 	y = y * (session->blocheight);
 	mlx_put_image_to_window (session->mlx, session->win, img, x, y);
-	free(img);
+	mlx_destroy_image(session->mlx ,img);
 }
 
 void	ft_put_player(t_data *session)

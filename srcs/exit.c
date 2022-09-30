@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 12:08:16 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/27 16:49:50 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/30 15:48:58 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	ft_exit_gameover(t_data *session)
 int	ft_exit(t_data *session)
 {
 	ft_freemem(session);
+	system("leaks so_long");
 	exit (0);
 }
 

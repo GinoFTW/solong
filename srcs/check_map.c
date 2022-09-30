@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:08:55 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/27 15:19:18 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/30 16:05:36 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	final_check_map(char **map, t_data *session)
 		}
 		x++;
 	}
-	free_map(map);
+	free_map(session);
 	return (check);
 }
 

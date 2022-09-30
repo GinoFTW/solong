@@ -6,11 +6,11 @@
 #    By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 11:31:39 by jmanet            #+#    #+#              #
-#    Updated: 2022/09/28 20:16:21 by jmanet           ###   ########.fr        #
+#    Updated: 2022/09/30 15:44:30 by jmanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = solong
+NAME = so_long
 
 SRCS = srcs/solong.c srcs/parsing_map.c srcs/character_moves.c srcs/rendering.c srcs/rendering_utils.c srcs/rendering_utils2.c srcs/sprites_animations.c srcs/check_map.c srcs/mem_utils.c srcs/exit.c getnextline/get_next_line.c getnextline/get_next_line_utils.c
 
