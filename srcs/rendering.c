@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 11:41:37 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/27 18:45:03 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/30 12:29:47 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	update_main_stream(t_data *session)
 	int	i;
 
 	i = 0;
-	while (i < 4)
+	while (i < 6)
 		ft_putimg(session, session->imgbloc, i++, 0);
 	ft_putimg(session, session->imgfloor, session->lastxplayer,
 		session->lastyplayer);
