@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 12:00:53 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/30 21:52:11 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/30 22:10:50 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,17 @@
 void	ft_putscore(t_data *session)
 {
 	char	*score;
+	char	*str1;
+	char	*str2;
 
-	score = ft_strjoin("Nombre de mouvements : ", ft_itoa(session->nbmoves));
+	str1 = ft_strdup("Nombre de mouvements : ");
+	str2 = ft_itoa(session->nbmoves);
+	score = ft_strjoin(str1, str2);
 	mlx_string_put(session->mlx, session->win, session->xscore,
 		session->yscore, 0x00FFFFFF, score);
 	free(score);
+	free(str1);
+	free(str2);
 }
 
 void	ft_putimg(t_data *session, char *imgfile, int x, int y)
