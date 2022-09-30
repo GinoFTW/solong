@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 11:41:37 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/29 15:33:54 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/30 11:54:10 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ void	end_stream(t_data *session)
 		session->yscore + 15, 0x00FFFFFF, "Tapez la touche echap pour quitter");
 	ft_putimg_end(session, session->imgplayer, ximgend + 100, yimgend +50);
 	if (session->frame < 120)
-		if (session->death == 1)
-			ft_putimg_end(session, session->imgendmessage, ximgend, yimgend);
+		ft_putimg_end(session, session->imgendmessage, ximgend, yimgend);
 }
 
 int	ft_rendering(t_data *session)
