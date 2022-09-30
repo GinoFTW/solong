@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:08:55 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/30 16:05:36 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/09/30 21:00:35 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,17 @@ int	final_check_map(char **map, t_data *session)
 		}
 		x++;
 	}
-	free_map(session);
+	free_temp_map(session);
 	return (check);
 }
 
 int	map_path_verif(t_data *session)
 {
-	char	**temp_map;
 	int		spread;
 	size_t	x;
 	size_t	y;
 
-	temp_map = ft_importmap(session);
+	session->tempmap = ft_importmap(session);
 	spread = -1;
 	while (spread)
 	{
@@ -82,17 +81,17 @@ int	map_path_verif(t_data *session)
 		y = 0;
 		while (y < session->maph)
 		{
-			if (temp_map[y][x] == 'P')
-				spread += spread_p(temp_map, x, y);
+			if (session->tempmap[y][x] == 'P')
+				spread += spread_p(session->tempmap, x, y);
 			x++;
-			if (temp_map[y][x] == '\n')
+			if (session->tempmap[y][x] == '\n')
 			{
 				x = 0;
 				y++;
 			}
 		}
 	}
-	return (final_check_map(temp_map, session));
+	return (final_check_map(session->tempmap, session));
 }
 
 void	check_map_is_rectangular(t_data *session)
