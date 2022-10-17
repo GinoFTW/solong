@@ -6,7 +6,7 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 11:25:56 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/30 21:56:42 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/10/17 12:02:30 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,4 @@ void	free_temp_map(t_data *session)
 void	ft_freemem(t_data *session)
 {
 	free_map(session);
-	free(session->mlx);
 }

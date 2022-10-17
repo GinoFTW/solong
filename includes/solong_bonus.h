@@ -6,14 +6,14 @@
 /*   By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:32:27 by jmanet            #+#    #+#             */
-/*   Updated: 2022/09/30 21:53:16 by jmanet           ###   ########.fr       */
+/*   Updated: 2022/10/17 12:07:57 by jmanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLONG_BONUS_H
 # define SOLONG_BONUS_H
 
-# include "mlx.h"
+# include <mlx.h>
 # include "../getnextline/get_next_line.h"
 # include "../libftprintf/includes/ft_printf.h"
 # include <fcntl.h>
