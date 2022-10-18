@@ -6,7 +6,7 @@
 #    By: jmanet <jmanet@student.42nice.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 11:31:39 by jmanet            #+#    #+#              #
-#    Updated: 2022/09/30 15:44:30 by jmanet           ###   ########.fr        #
+#    Updated: 2022/10/18 09:23:24 by jmanet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,12 +28,14 @@ FLAGS = -Wall -Werror -Wextra -framework Appkit -framework OpenGL
 
 OBJS = ${SRCS:.c=.o}
 
+OBJS_BONUS = ${SRCS_BONUS:.c=.o}
+
 all : ${NAME}
 
-${NAME} : ${SRCS} ${LIBFTPRINTF}
+${NAME} : ${OBJS} ${LIBFTPRINTF}
 	${CC} ${SRCS} -I ${INCLUDES} ${LIBS} ${FLAGS} -o ${NAME}
 
-bonus : ${SRCS_BONUS} ${LIBFTPRINTF}
+bonus : ${OBJS_BONUS} ${LIBFTPRINTF}
 	${CC} ${SRCS_BONUS} -I ${INCLUDES} ${LIBS} ${FLAGS} -o ${NAME}
 
 ${LIBFTPRINTF} :
@@ -41,6 +43,7 @@ ${LIBFTPRINTF} :
 
 clean :
 	rm -f ${OBJS}
+	rm -f ${OBJS_BONUS}
 	make fclean -C libftprintf/
 fclean : clean
 	rm -f ${NAME}
